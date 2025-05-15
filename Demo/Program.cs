@@ -5,6 +5,15 @@ namespace Demo;
 
 internal class Program
 {
+    private static void Print<T>(string message, IEnumerable<T> collection)
+    {
+        Console.WriteLine(message);
+        foreach (T item in collection)
+        {
+            Console.WriteLine(item);
+        }
+        Console.WriteLine();
+    }
     static void Main()
     {
         var c1 = new Category { Id = 2, Name = "Comidas", Tier = 1 };
@@ -27,9 +36,9 @@ internal class Program
             }
         };
 
-        foreach (var product in products.Where(product => product.Price > 100))
-        {
-            Console.WriteLine(product);
-        }
+        var result = products
+            .Where(product => product.Category.Tier == 1 && product.Price > 100);
+
+        Print("TIER 1 AND PRICE > 100:", result);
     }
 }
