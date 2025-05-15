@@ -39,6 +39,11 @@ internal class Program
         var result = products
             .Where(product => product.Category.Tier == 1 && product.Price > 100);
 
+        var result2 = products
+            .Where(p => p.Category.Name == "Tools")
+            .Select(p => p.Name);
+
         Print("TIER 1 AND PRICE > 100:", result);
+        Print("NAMES OF PRODUCTS FROM TOOLS", result2);
     }
 }
