@@ -27,9 +27,7 @@ internal class Program
             }
         };
 
-        var templateList = products.Where(product => product.Price > 100).ToList();
-
-        foreach (var product in templateList)
+        foreach (var product in products.Where(product => product.Price > 100))
         {
             Console.WriteLine(product);
         }
