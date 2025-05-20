@@ -48,7 +48,15 @@ internal class Program
             .Where(p => p.Name[0] == 'C')
             .Select(p => new { p.Name, p.Price, CategoryName = p.Category.Name });
 
+        // cria uma lista de usuários ordenados por nome e por preço
+        var result4 = products
+            .Where(p => p.Category.Tier == 1)
+            .OrderBy(p => p.Name)
+            .ThenBy(p => p.Price);
+
         Print("TIER 1 AND PRICE > 100:", result);
         Print("NAMES OF PRODUCTS FROM TOOLS", result2);
+        Print("NAMES STARTED WITH 'C' AND ANONIMOUS OBJECT:", result3);
+        Print("TIER 1 ORDER NAME THEN BY PRICE:", result4);
     }
 }
