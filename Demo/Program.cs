@@ -54,9 +54,13 @@ internal class Program
             .OrderBy(p => p.Name)
             .ThenBy(p => p.Price);
 
+        // cria uma lista com técnicas de paginação
+        var result5 = result4.Skip(1).Take(2);
+
         Print("TIER 1 AND PRICE > 100:", result);
         Print("NAMES OF PRODUCTS FROM TOOLS", result2);
         Print("NAMES STARTED WITH 'C' AND ANONIMOUS OBJECT:", result3);
         Print("TIER 1 ORDER NAME THEN BY PRICE:", result4);
+        Print("TIER 1 ORDER BY NAME THEN BY PRICE SKIP 1 TAKE 2",result5);
     }
 }
