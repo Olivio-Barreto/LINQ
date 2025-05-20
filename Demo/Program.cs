@@ -41,7 +41,12 @@ internal class Program
 
         var result2 = products
             .Where(p => p.Category.Name == "Tools")
-            .Select(p => p.Name);
+            .Select(p => p.Name); // cria uma lista apenas com os nomes dos usuarios
+
+        // cria uma lista de usuarios com apenas as propriedades desejadas
+        var result3 = products
+            .Where(p => p.Name[0] == 'C')
+            .Select(p => new { p.Name, p.Price, CategoryName = p.Category.Name });
 
         Print("TIER 1 AND PRICE > 100:", result);
         Print("NAMES OF PRODUCTS FROM TOOLS", result2);
